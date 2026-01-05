@@ -20,6 +20,6 @@ jobs:
           path: downloaded-content
 
       - name: Delete artifact
-        uses: geekyeggo/delete-artifact@v2
+        uses: geekyeggo/delete-artifact@v3
         with:
           name: my-app
