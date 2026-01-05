@@ -7,7 +7,7 @@ on:
 jobs:
   ci:
     name: run build process
-    uses: TrustAfrica/GHA.workflows/blob/.github/workflows/gha.workflows.build-node.yml@main
+    uses: TrustAfrica/GHA.workflows/.github/workflows/gha.workflows.build-node.yml@main
 
   deploy-job:
     needs: [ build ]
