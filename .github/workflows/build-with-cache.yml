@@ -10,13 +10,16 @@ jobs:
     uses: TrustAfrica/GHA.workflows/.github/workflows/gha.workflows.build-node.yml@main
 
   deploy-job:
-    needs: [ build ]
+    needs: [ ci ]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/download-artifact@v2
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
         with:
           name: my-app
-          path: downloaded-content 
-      - run: geekyeggo/delete-artifact@v2  # This will delete the artifact at the end of the action run, so it won't be accessible and will only temporarily use the storage available to your account.
+          path: downloaded-content
+
+      - name: Delete artifact
+        uses: geekyeggo/delete-artifact@v2
         with:
-          name: my-app   
+          name: my-app
